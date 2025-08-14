@@ -11,7 +11,7 @@ body {
 .header-container {
     text-align: center;
     padding: 40px 20px;
-    background-color: #007bff;
+    background-color: #dc3545; /* Cor alterada para vermelho */
     color: white;
 }
 
@@ -41,8 +41,8 @@ h1 {
 
 .sumario-title {
     margin-top: 0;
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
+    color: #dc3545; /* Cor alterada para vermelho */
+    border-bottom: 2px solid #dc3545; /* Cor alterada para vermelho */
     padding-bottom: 10px;
 }
 
@@ -60,7 +60,7 @@ h1 {
 }
 
 .sumario-lista li a:hover {
-    color: #0056b3;
+    color: #c82333; /* Cor alterada para um vermelho mais escuro */
 }
 
 .conteudo-guia {
@@ -76,8 +76,8 @@ section {
 }
 
 h2 {
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
+    color: #dc3545; /* Cor alterada para vermelho */
+    border-bottom: 2px solid #dc3545; /* Cor alterada para vermelho */
     padding-bottom: 5px;
     margin-top: 0;
 }
@@ -105,12 +105,12 @@ code {
 
 /* Estilos para Celulares e Tablets */
 .menu-toggle {
-    display: none; /* Oculta o botão no desktop */
+    display: none;
     position: fixed;
     top: 15px;
     left: 15px;
     padding: 10px 15px;
-    background-color: #007bff;
+    background-color: #dc3545; /* Cor alterada para vermelho */
     color: white;
     border: none;
     border-radius: 5px;
@@ -120,7 +120,7 @@ code {
 
 @media (max-width: 768px) {
     .main-content {
-        flex-direction: column; /* Organiza sumário e conteúdo em coluna */
+        flex-direction: column;
     }
 
     .sumario-container {
@@ -129,23 +129,9 @@ code {
         position: static;
         max-height: none;
         overflow-y: hidden;
-        display: none; /* Esconde o sumário por padrão no celular */
+        display: none;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     
     .conteudo-guia {
         padding: 15px;
-    }
-    
-    .menu-toggle {
-        display: block; /* Mostra o botão no celular */
-    }
-    
-    body.menu-aberto .sumario-container {
-        display: block; /* Mostra o sumário quando o botão é clicado */
-    }
-    
-    body.menu-aberto .main-content {
-        margin-top: 60px; /* Evita que o conteúdo fique atrás do sumário */
-    }
-}
