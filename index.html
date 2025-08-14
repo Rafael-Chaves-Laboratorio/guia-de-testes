@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completo de Testes e Gestão de Equipamentos de Rede</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header-container">
+        <h1>Guia Completo de Testes e Gestão de Equipamentos de Rede</h1>
+    </header>
+
+    <main class="main-content">
+        <nav class="sumario-container">
+            <h2 class="sumario-title">Sumário</h2>
+            <ul class="sumario-lista">
+                <li><a href="#primeiros-passos">1. Primeiros Passos no Laboratório</a></li>
+                <li><a href="#tarefas-diarias-mensais">2. Tarefas Diárias e Mensais</a></li>
+                <li><a href="#testes-onts-onus">3. Testes de ONTs e ONUs de Recolhimento</a></li>
+                <li><a href="#testes-antenas">4. Testes de Antenas</a></li>
+                <li><a href="#testes-roteadores">5. Testes de Roteadores</a></li>
+                <li><a href="#testes-switches">6. Testes de Switches</a></li>
+                <li><a href="#testes-telefone-ip">7. Testes de Telefone IP Intelbras TIP 125i</a></li>
+                <li><a href="#testes-access-points">8. Testes de Access Points UniFi (UAP)</a></li>
+                <li><a href="#testes-avancados">9. Testes Avançados de Equipamentos de OS</a></li>
+                <li><a href="#tabela-controle">10. Tabela de Controle no Dropbox</a></li>
+                <li><a href="#vendas-equipamento">11. Vendas de Equipamento</a></li>
+                <li><a href="#procedimentos-seguranca">12. Procedimentos de Segurança</a></li>
+                <li><a href="#senhas-padrao">13. Senhas Padrão</a></li>
+            </ul>
+        </nav>
+
+        <article class="conteudo-guia">
+            <section id="primeiros-passos">
+                <h2>1. Primeiros Passos no Laboratório</h2>
+                <p><strong>Objetivo Geral:</strong> Testar, reabilitar e catalogar equipamentos para reuso em futuras instalações.</p>
+                <h3>Fluxo de Trabalho:</h3>
+                <ul>
+                    <li><strong>Categorização:</strong> Classifique o equipamento como REGULAR, RMA (REPARO) ou DESCARTE.</li>
+                    <li><strong>Teste Simples:</strong> Verifique fonte, energia e reinicie o aparelho.</li>
+                    <li><strong>Registro:</strong> Cataloge o equipamento, seu estado e quantidade no caderno de registros.</li>
+                    <li><strong>Destino:</strong> Redirecione o equipamento para o seu devido lugar.</li>
+                </ul>
+            </section>
+            
+            <section id="tarefas-diarias-mensais">
+                <h2>2. Tarefas Diárias e Mensais</h2>
+                <h3>Diariamente:</h3>
+                <ul>
+                    <li>Organize a bancada e área de trabalho.</li>
+                    <li>Teste, limpe e ensaque os equipamentos.</li>
+                    <li>Registre as atividades no caderno.</li>
+                    <li>Atualize a planilha do Dropbox.</li>
+                    <li>Separe panos usados para lavagem.</li>
+                </ul>
+                <h3>Semanalmente:</h3>
+                <ul>
+                    <li>Garanta que o laboratório está abastecido com insumos (adesivos, sacolas, tampas SFP).</li>
+                    <li>Verifique se não há acúmulo de equipamentos para teste, limpeza, RMA ou descarte.</li>
+                    <li>Confira se todas as ferramentas estão em boas condições.</li>
+                </ul>
+            </section>
+            
+            <section id="testes-onts-onus">
+                <h2>3. Testes de ONTs e ONUs de Recolhimento</h2>
+                <p><strong>Objetivo:</strong> Verificar rapidamente equipamentos recolhidos antes de decidir se vão para RMA ou retorno ao estoque.</p>
+                <h3>Testes Simples:</h3>
+                <ul>
+                    <li><strong>Ligar e LEDs:</strong> Conecte à tomada e verifique se todos os LEDs principais acendem corretamente.</li>
+                    <li><strong>Wi-Fi:</strong> Teste se a rede Wi-Fi está ativa e funcionando.</li>
+                    <li><strong>Reset Físico:</strong> Caso haja algum problema menor, realize um reset físico seguindo o procedimento do equipamento.</li>
+                </ul>
+                <h3>Classificação após teste simples:</h3>
+                <ul>
+                    <li><strong>REGULAR:</strong> Equipamento liga normalmente, LEDs corretos e Wi-Fi funcional.</li>
+                    <li><strong>RMA:</strong> Equipamento apresenta falha de LEDs ou Wi-Fi.</li>
+                    <li><strong>DESCARTE:</strong> Não liga ou apresenta defeito grave.</li>
+                </ul>
+            </section>
+            
+            <section id="testes-antenas">
+                <h2>4. Testes de Antenas</h2>
+                <h3>Ligar e Conectar:</h3>
+                <ul>
+                    <li>Ligue a fonte POE na tomada.</li>
+                    <li>Conecte a entrada POE na antena e a entrada LAN no notebook.</li>
+                    <li>Resete a antena: pressione o botão de reset por 30 segundos usando um clipe.</li>
+                </ul>
+                <h3>Definir IP Fixo no Notebook:</h3>
+                <ul>
+                    <li>IP: 192.168.1.25</li>
+                    <li>Máscara: 255.255.255.0</li>
+                    <li>Gateway: 192.168.1.20</li>
+                </ul>
+                <h3>Verificar Ping:</h3>
+                <ul>
+                    <li>Windows: <code>ping -t 192.168.1.20</code></li>
+                    <li>Ubuntu: <code>ping 192.168.1.20</code> (Ctrl+C para parar)</li>
+                </ul>
+                <h3>Acessar Interface:</h3>
+                <ul>
+                    <li>Navegador: <code>https://192.168.1.20</code></li>
+                    <li>Usuário: <code>ubnt</code> / Senha: <code>ubnt</code></li>
+                    <li>Região: <code>Licensed</code> / Idioma: <code>Brasil</code></li>
+                </ul>
+                <h3>Validar Configurações:</h3>
+                <ul>
+                    <li>LAN configurada para 100Mbps</li>
+                    <li>Teste Wi-Fi e polarização</li>
+                    <li>Verifique velocidade de upload e download</li>
+                </ul>
+                <h3>Classificação:</h3>
+                <p>REGULAR, RMA ou DESCARTE conforme desempenho e estado físico</p>
+            </section>
+            
+            <section id="testes-roteadores">
+                <h2>5. Testes de Roteadores</h2>
+                <ul>
+                    <li>Ligue o roteador e conecte WAN/LAN corretamente.</li>
+                    <li>Verifique LEDs (Power, WAN/Internet, LAN, Wi-Fi).</li>
+                    <li>Acesse a interface via navegador (IP padrão <code>192.168.1.1</code> ou <code>192.168.0.1</code>).</li>
+                    <li>Teste a conectividade: cabo LAN e Wi-Fi.</li>
+                    <li>Classifique: REGULAR, RMA ou DESCARTE.</li>
+                    <li>Se LED WAN vermelho: verifique cabos, modem, troque cabos ou faça reset de fábrica.</li>
+                </ul>
+            </section>
+            
+            <section id="testes-switches">
+                <h2>6. Testes de Switches</h2>
+                <ul>
+                    <li>Ligue o switch e verifique LED de energia.</li>
+                    <li>Conecte cabos em cada porta LAN e teste o LED correspondente.</li>
+                    <li>Classifique: REGULAR, RMA ou DESCARTE.</li>
+                </ul>
+            </section>
+
+            <section id="testes-telefone-ip">
+                <h2>7. Testes de Telefone IP Intelbras TIP 125i</h2>
+                <ul>
+                    <li>Conecte ao computador via LAN/PoE.</li>
+                    <li>Ligue e verifique display e LED de Power.</li>
+                    <li>Acesse interface pelo IP mostrado no display, login padrão.</li>
+                    <li>Teste registro SIP, chamadas e funções (volume, viva-voz).</li>
+                    <li>Classifique: REGULAR, RMA ou DESCARTE.</li>
+                </ul>
+            </section>
+            
+            <section id="testes-access-points">
+                <h2>8. Testes de Access Points UniFi (UAP)</h2>
+                <ul>
+                    <li>Conecte AP ao switch/fonte PoE.</li>
+                    <li>Resete AP (5-10s).</li>
+                    <li>Adote no controlador UniFi e aguarde mudança de LED para verde/azul.</li>
+                    <li>Teste Wi-Fi e verifique firmware.</li>
+                    <li>Classifique: REGULAR, RMA ou DESCARTE.</li>
+                </ul>
+            </section>
+            
+            <section id="testes-avancados">
+                <h2>9. Testes Avançados de Equipamentos de OS (ONTs e Roteadores)</h2>
+                <h3>ONTs ZTE F670L / F6600P:</h3>
+                <ul>
+                    <li>Conecte energia, fibra e cabo LAN.</li>
+                    <li>Resete fisicamente.</li>
+                    <li>Verifique LEDs (LOS, LAN) e sinal Wi-Fi.</li>
+                    <li>Acesse interface para medir potência de entrada do módulo óptico (-18dBm a -28dBm).</li>
+                    <li>Use OLTSoft: autorize ONT, configure script Router+WiFi, SSID Testes_Laboratorio e senha <code>12345678</code>.</li>
+                    <li>Após teste, desaprove a ONT para remover conexão.</li>
+                </ul>
+                <h3>Roteadores IWR1000N/IWR3000N:</h3>
+                <ul>
+                    <li>Conecte e acesse interface (IP <code>192.168.0.1</code>).</li>
+                    <li>Senhas: <code>suporte@RBT*100</code>, <code>redebrasil</code> ou <code>admin</code></li>
+                    <li>Atualize firmware conforme modelo</li>
+                    <li>Reset de fábrica se necessário</li>
+                    <li>Teste novamente e classifique: REGULAR, RMA ou DESCARTE</li>
+                </ul>
+            </section>
+            
+            <section id="tabela-controle">
+                <h2>10. Tabela de Controle no Dropbox</h2>
+                <ul>
+                    <li>Registre todos os equipamentos testados, limpos e encaminhados.</li>
+                    <li>Inclua tipo, modelo, status (REGULAR, RMA, DESCARTE) e data.</li>
+                </ul>
+            </section>
+            
+            <section id="vendas-equipamento">
+                <h2>11. Vendas de Equipamento</h2>
+                <ul>
+                    <li>Verifique detalhes da venda com equipe de estoque.</li>
+                    <li>Separe produtos REGULAR, registre SN ou MAC na planilha.</li>
+                    <li>Embale produtos com proteção, insira planilha impressa na caixa e entregue ao estoque.</li>
+                </ul>
+            </section>
+            
+            <section id="procedimentos-seguranca">
+                <h2>12. Procedimentos de Segurança</h2>
+                <ul>
+                    <li>Mantenha bancada organizada.</li>
+                    <li>Não sobrecarregue tomadas; inspecione cabos.</li>
+                    <li>Nunca olhe diretamente para a ponta de fibra óptica ativa.</li>
+                    <li>Descarte cacos de fibra em recipiente apropriado.</li>
+                    <li>Use luvas e óculos de proteção ao manusear fibra ou produtos químicos.</li>
+                    <li>Comunique acidentes imediatamente.</li>
+                </ul>
+            </section>
+            
+            <section id="senhas-padrao">
+                <h2>13. Senhas Padrão</h2>
+                <h3>1. Credenciais internas gerais:</h3>
+                <ul>
+                    <li>Usuário: <code>multipro</code> | Senha: <code>multipro</code></li>
+                    <li>Usuário: <code>admin</code>| Senha: <code>suporte@RBT*100</code></li>
+                    <li>Usuário: <code>admin</code> | Senha: <code>admin</code></li>
+                    <li>Usuário: <code>user</code> | Senha: <code>user</code></li>
+                    <li>Usuário: <code>user</code> | Senha: <code>suporte@RBT*100</code></li>
+                </ul>
+                <h3>2. Credenciais específicas para roteadores Intelbras IWR1000N e IWR3000N:</h3>
+                <ul>
+                    <li>Usuário: <code>admin</code> | Senha: <code>suporte@RBT*100</code></li>
+                    <li>Usuário: <code>admin</code> | Senha: <code>redebrasil</code></li>
+                    <li>Usuário: <code>admin</code> | Senha: <code>admin</code></li>
+                    <li>Usuário: <code>redebrasil</code> | Senha: <code>redebrasil</code></li>
+                </ul>
+                <h3>3. Credenciais específicas para Antenas</h3>
+                <ul>
+                    <li>Usuário: <code>ubnt</code> / Senha: <code>ubnt</code></li>
+                </ul>
+                <h3>Observações:</h3>
+                <ul>
+                    <li>Utilizar apenas em ambiente de teste ou quando autorizado pela coordenação.</li>
+                    <li>Sempre registrar alterações no sistema interno.</li>
+                    <li>Após uso, retornar o equipamento às credenciais padrão.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
