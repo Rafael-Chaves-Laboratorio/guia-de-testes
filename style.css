@@ -102,3 +102,50 @@ code {
     border-radius: 4px;
     font-family: 'Courier New', Courier, monospace;
 }
+
+/* Estilos para Celulares e Tablets */
+.menu-toggle {
+    display: none; /* Oculta o botão no desktop */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column; /* Organiza sumário e conteúdo em coluna */
+    }
+
+    .sumario-container {
+        width: 100%;
+        margin-right: 0;
+        position: static;
+        max-height: none;
+        overflow-y: hidden;
+        display: none; /* Esconde o sumário por padrão no celular */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .conteudo-guia {
+        padding: 15px;
+    }
+    
+    .menu-toggle {
+        display: block; /* Mostra o botão no celular */
+    }
+    
+    body.menu-aberto .sumario-container {
+        display: block; /* Mostra o sumário quando o botão é clicado */
+    }
+    
+    body.menu-aberto .main-content {
+        margin-top: 60px; /* Evita que o conteúdo fique atrás do sumário */
+    }
+}
