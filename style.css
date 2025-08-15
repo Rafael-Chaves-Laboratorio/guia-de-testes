@@ -30,7 +30,7 @@ body {
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
-    /* REMOVER overflow: hidden; */
+    /* overflow: hidden; */ /* REMOVIDO para permitir rolagem do sumário */
 }
 
 /* Estilos para o sumário (barra lateral) */
@@ -133,13 +133,13 @@ body {
         left: 0;
         z-index: 1000;
         transform: translateX(-100%);
-        overflow-y: auto; /* garante rolagem interna no mobile */
+        overflow-y: auto; /* rolagem interna no mobile */
     }
 
     .sumario-container.open {
         transform: translateX(0);
     }
-    
+
     .menu-toggle {
         display: block;
     }
