@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const sumarioContainer = document.querySelector('.sumario-container');
-    
-    // Novo botão de fechar o sumário
     const sumarioCloseBtn = document.querySelector('.sumario-close-btn');
 
     // Função para alternar a visibilidade do sumário
@@ -20,10 +18,21 @@ document.addEventListener('DOMContentLoaded', function() {
         sumarioCloseBtn.addEventListener('click', toggleSumario);
     }
 
-    // Evento para fechar o sumário quando um item é clicado (comportamento padrão)
-    const sumarioLinks = document.querySelectorAll('.sumario-lista a');
-    sumarioLinks.forEach(link => {
-        link.addEventListener('click', function() {
+    // Código para rolagem suave
+    document.querySelectorAll('.sumario-lista a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Impede o pulo direto para o tópico
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+
+            // Fechar o sumário no mobile após o clique
             if (window.innerWidth <= 768) {
                 toggleSumario();
             }
