@@ -6,6 +6,8 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    display: flex;
+    justify-content: center;
 }
 
 /* Estilos para o cabeçalho principal */
@@ -15,6 +17,7 @@ body {
     text-align: center;
     padding: 1.5rem 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 100%;
 }
 
 .header-container h1 {
@@ -26,12 +29,12 @@ body {
 .main-content {
     display: flex;
     max-width: 1200px;
-    margin: 2rem auto;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
     overflow: hidden;
-    position: relative; /* Adiciona esta linha para corrigir o posicionamento */
+    position: relative;
+    width: 100%;
 }
 
 /* Estilos para o sumário (barra lateral) */
@@ -46,8 +49,9 @@ body {
     
     /* --- CÓDIGO CORRIGIDO PARA FIXAR O SUMÁRIO --- */
     height: 100vh;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: calc(50% - 600px); /* Ajusta a posição para que fique ao lado do main-content */
     overflow-y: auto;
 }
 
@@ -84,6 +88,7 @@ body {
 .conteudo-guia {
     flex-grow: 1;
     padding: 2rem;
+    margin-left: 300px; /* Garante que o conteúdo não fique escondido atrás do sumário */
 }
 
 .conteudo-guia section {
