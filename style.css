@@ -29,6 +29,7 @@ body {
 .main-content {
     display: flex;
     max-width: 1200px;
+    margin: 2rem auto; /* Ajusta a margem para telas maiores */
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
@@ -47,11 +48,10 @@ body {
     flex-shrink: 0;
     transition: transform 0.3s ease-in-out;
     
-    /* --- CÓDIGO CORRIGIDO PARA FIXAR O SUMÁRIO --- */
+    /* --- CÓDIGO CORRIGIDO PARA FIXAR O SUMÁRIO NO DESKTOP --- */
     height: 100vh;
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: calc(50% - 600px); /* Ajusta a posição para que fique ao lado do main-content */
     overflow-y: auto;
 }
 
@@ -88,7 +88,6 @@ body {
 .conteudo-guia {
     flex-grow: 1;
     padding: 2rem;
-    margin-left: 300px; /* Garante que o conteúdo não fique escondido atrás do sumário */
 }
 
 .conteudo-guia section {
