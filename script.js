@@ -6,16 +6,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Abre/fecha pelo botão
     if (menuToggle && sumarioContainer) {
         menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // impede que o clique feche imediatamente
+            e.stopPropagation();
             sumarioContainer.classList.toggle('open');
         });
     }
 
-    // Fecha ao clicar em um link do sumário
+    // Scroll suave e fechamento no mobile ao clicar em um link
     if (sumarioLinks) {
         sumarioLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (sumarioContainer) {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // impede o salto instantâneo
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth', // scroll suave
+                        block: 'start'
+                    });
+                }
+
+                // Fecha menu no mobile
+                if (sumarioContainer.classList.contains('open')) {
                     sumarioContainer.classList.remove('open');
                 }
             });
