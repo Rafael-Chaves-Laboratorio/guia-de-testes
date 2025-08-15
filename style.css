@@ -18,11 +18,20 @@ body {
     text-align: center;
     padding: 1.5rem 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex; /* Adicionado para alinhar a imagem e o texto */
+    justify-content: center; /* Adicionado para centralizar */
+    align-items: center; /* Adicionado para centralizar verticalmente */
 }
 
 .header-container h1 {
     margin: 0;
     font-size: 2rem;
+}
+
+/* NOVO ESTILO PARA A IMAGEM NO CABEÇALHO */
+.header-logo {
+    height: 50px; /* Tamanho da imagem */
+    margin-right: 15px; /* Espaço entre a imagem e o texto */
 }
 
 /* Estilos para o container principal */
@@ -184,6 +193,51 @@ body {
     transform: rotate(45deg); /* Gira o ícone de '+' para um 'X' */
 }
 
+/* --- Estilos para a seção de Contato (Formulário) --- */
+.contato-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin-top: 2rem;
+}
+
+.contato-form label {
+    font-weight: bold;
+    color: #424242;
+}
+
+.contato-form input,
+.contato-form textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.contato-form input:focus,
+.contato-form textarea:focus {
+    outline: none;
+    border-color: #b71c1c;
+    box-shadow: 0 0 5px rgba(183, 28, 28, 0.5);
+}
+
+.contato-form button {
+    padding: 1rem 1.5rem;
+    background-color: #b71c1c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contato-form button:hover {
+    background-color: #8b1818;
+}
+
 /* Media Queries para responsividade */
 @media (max-width: 768px) {
     .main-content {
@@ -229,5 +283,15 @@ body {
 
     .conteudo-guia {
         padding: 1rem;
+    }
+
+    /* Reduz o tamanho da fonte e da imagem no celular */
+    .header-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-logo {
+        height: 40px;
+        margin-right: 10px;
     }
 }
