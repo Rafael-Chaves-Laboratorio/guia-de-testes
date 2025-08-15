@@ -24,17 +24,13 @@ body {
 
 /* Estilos para o container principal */
 .main-content {
+    display: flex;
     max-width: 1200px;
     margin: 2rem auto;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
-    overflow: hidden;
-}
-
-/* Novo container para o sumário e o conteúdo do guia */
-.content-wrapper {
-    display: flex;
+    /* Removido o 'overflow: hidden' para permitir que o sticky funcione */
 }
 
 /* Estilos para o sumário (barra lateral) */
@@ -49,9 +45,9 @@ body {
     transition: transform 0.3s ease-in-out;
     
     /* --- CÓDIGO FINAL E CORRIGIDO PARA FIXAR O SUMÁRIO --- */
-    height: 100vh;
     position: sticky;
     top: 0;
+    height: 100vh;
 }
 
 .sumario-title {
@@ -129,6 +125,7 @@ body {
 /* Media Queries para responsividade */
 @media (max-width: 768px) {
     .main-content {
+        flex-direction: column;
         margin: 0;
         border-radius: 0;
     }
