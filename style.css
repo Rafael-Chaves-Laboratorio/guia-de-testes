@@ -41,13 +41,13 @@ body {
     padding: 2rem;
     box-sizing: border-box;
     flex-shrink: 0;
-    overflow-y: auto;
     transition: transform 0.3s ease-in-out;
     
-    /* --- CÓDIGO CORRIGIDO PARA FIXAR O SUMÁRIO --- */
-    height: fit-content;
+    /* --- CÓDIGO CORRIGIDO PARA FIXAR O SUMÁRIO NO DESKTOP --- */
+    height: 100vh;
     position: sticky;
-    top: 2rem;
+    top: 0;
+    overflow-y: auto;
 }
 
 .sumario-title {
