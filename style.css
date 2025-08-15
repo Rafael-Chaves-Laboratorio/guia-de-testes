@@ -30,7 +30,6 @@ body {
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
-    /* Removido o 'overflow: hidden' para permitir que o sticky funcione */
 }
 
 /* Estilos para o sumário (barra lateral) */
@@ -43,8 +42,6 @@ body {
     flex-shrink: 0;
     overflow-y: auto;
     transition: transform 0.3s ease-in-out;
-    
-    /* --- CÓDIGO FINAL E CORRIGIDO PARA FIXAR O SUMÁRIO --- */
     position: sticky;
     top: 0;
     height: 100vh;
@@ -77,6 +74,11 @@ body {
 
 .sumario-lista a:hover {
     background-color: #424242;
+}
+
+/* Esconde o botão de fechar na versão desktop */
+.sumario-close-btn {
+    display: none;
 }
 
 /* Estilos para o conteúdo do guia */
@@ -142,6 +144,23 @@ body {
 
     .sumario-container.open {
         transform: translateX(0);
+    }
+
+    /* Exibe o botão de fechar apenas no celular */
+    .sumario-close-btn {
+        display: block;
+        background: none;
+        color: white;
+        border: 2px solid white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1.2rem;
     }
     
     .menu-toggle {
