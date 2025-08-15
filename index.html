@@ -3,66 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia de Equipamentos de Rede</title>
+    <title>Guia Completo de Testes e Gestão de Equipamentos de Rede</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Cabeçalho com logo -->
+    <!-- Cabeçalho -->
     <header class="header-container">
         <img class="header-logo" src="logo-2c7bc4a7.png" alt="Logo do site">
         <h1>Guia Completo de Testes e Gestão de Equipamentos de Rede</h1>
     </header>
 
-    <!-- Botão do menu (aparece no mobile) -->
-    <button class="menu-toggle">☰ Menu</button>
+    <!-- Botão de menu mobile -->
+    <button class="menu-toggle" onclick="document.querySelector('.sumario-container').classList.toggle('open')">☰ Menu</button>
 
+    <!-- Conteúdo principal -->
     <div class="main-content">
         
-        <!-- Sumário lateral -->
-        <aside class="sumario-container">
-            <button class="sumario-close-btn">&times;</button>
+        <!-- Sumário -->
+        <nav class="sumario-container">
+            <button class="sumario-close-btn" onclick="document.querySelector('.sumario-container').classList.remove('open')">×</button>
             <h2 class="sumario-title">Sumário</h2>
             <ul class="sumario-lista">
-                <li><a href="#secao1">Primeiros Passos</a></li>
-                <li><a href="#secao2">Testes de ONTs</a></li>
-                <li><a href="#secao3">Testes de ONUs</a></li>
-                <li><a href="#secao4">Contato</a></li>
+                <li><a href="#introducao">Introdução</a></li>
+                <li><a href="#testes-onts">Testes de ONTs</a></li>
+                <li><a href="#testes-onus">Testes de ONUs</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
-        </aside>
+        </nav>
 
-        <!-- Conteúdo principal -->
-        <main class="conteudo-guia">
-            <section id="secao1">
-                <h2>Primeiros Passos no Laboratório</h2>
-                <p>Conteúdo introdutório...</p>
+        <!-- Conteúdo -->
+        <div class="conteudo-guia">
+            
+            <section id="introducao">
+                <h2>Introdução</h2>
+                <p>Bem-vindo ao guia completo para testes e gestão de equipamentos de rede. Aqui você encontrará procedimentos, dicas e boas práticas.</p>
             </section>
 
-            <section id="secao2">
+            <section id="testes-onts">
                 <h2>Testes de ONTs</h2>
-                <p>Conteúdo dos testes...</p>
+                <p>Procedimentos de teste para terminais ópticos de rede...</p>
             </section>
 
-            <section id="secao3">
+            <section id="testes-onus">
                 <h2>Testes de ONUs</h2>
-                <p>Conteúdo dos testes...</p>
+                <p>Procedimentos de teste para unidades de rede óptica...</p>
             </section>
 
-            <!-- Formulário de contato -->
-            <section id="secao4">
+            <!-- FAQ -->
+            <section id="faq" class="faq-container">
+                <h2>Perguntas Frequentes (FAQ)</h2>
+                <div class="faq-item">
+                    <div class="faq-pergunta">
+                        <span>Como realizar o teste inicial?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-resposta">
+                        <p>Para realizar o teste inicial, siga os passos descritos na seção "Primeiros Passos".</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contato -->
+            <section id="contato">
                 <h2>Contato</h2>
                 <form class="contato-form">
                     <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" required>
+                    <input type="text" id="nome" name="nome">
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
 
                     <label for="mensagem">Mensagem</label>
-                    <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                    <textarea id="mensagem" name="mensagem"></textarea>
 
                     <button type="submit">Enviar</button>
                 </form>
             </section>
-        </main>
+
+        </div>
     </div>
+
+    <!-- Script para FAQ -->
+    <script>
+        document.querySelectorAll('.faq-pergunta').forEach(item => {
+            item.addEventListener('click', () => {
+                item.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
