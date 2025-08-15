@@ -24,9 +24,8 @@ body {
    Cabeçalho
 =============================== */
 .header-container {
-    background-color: #b71c1c; /* Mantive a cor do seu estilo original */
+    background-color: #b71c1c;
     color: white;
-    text-align: center;
     padding: 1.5rem 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     display: flex;
@@ -40,7 +39,8 @@ body {
 }
 
 .header-logo {
-    height: 50px;
+    /* A falta de uma altura fixa aqui é o que causa o problema */
+    /* O logo aparece no seu tamanho original de 1045x1000px */
     margin-right: 15px;
 }
 
