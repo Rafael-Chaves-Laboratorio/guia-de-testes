@@ -19,155 +19,470 @@
             <h2 class="sumario-title">Sumário</h2>
             <ul class="sumario-lista">
                 <li><a href="#primeiros-passos">1. Primeiros Passos no Laboratório</a></li>
-                <li><a href="#tarefas-diarias-mensais">2. Tarefas Diárias e Mensais</a></li>
-                <li><a href="#testes-onts-onus">3. Testes de ONTs e ONUs de Recolhimento</a></li>
-                <li><a href="#testes-antenas">4. Testes de Antenas</a></li>
-                <li><a href="#testes-roteadores">5. Testes de Roteadores</a></li>
+                <li><a href="#testes-onts">2. Testes de ONTs</a></li>
+                <li><a href="#testes-onus">3. Testes de ONUs</a></li>
+                <li><a href="#testes-roteadores">4. Testes de Roteadores</a></li>
+                <li><a href="#testes-antenas">5. Testes de Antenas</a></li>
                 <li><a href="#testes-switches">6. Testes de Switches</a></li>
-                <li><a href="#testes-telefone-ip">7. Testes de Telefone IP Intelbras TIP 125i</a></li>
-                <li><a href="#testes-access-points">8. Testes de Access Points UniFi (UAP)</a></li>
-                <li><a href="#testes-avancados">9. Testes Avançados de Equipamentos de OS</a></li>
-                <li><a href="#tabela-controle">10. Tabela de Controle no Dropbox</a></li>
-                <li><a href="#vendas-equipamento">11. Vendas de Equipamento</a></li>
-                <li><a href="#procedimentos-seguranca">12. Procedimentos de Segurança</a></li>
-                <li><a href="#senhas-padrao">13. Senhas Padrão</a></li>
+                <li><a href="#testes-telefone-ip">7. Testes de Telefone IP</a></li>
+                <li><a href="#testes-access-points">8. Testes de Access Points</a></li>
+                <li><a href="#verificacao-equipamentos-recolhidos">9. Verificação de Equipamentos Recolhidos</a></li>
+                <li><a href="#tarefas-diarias-mensais">10. Tarefas Diárias e Mensais</a></li>
+                <li><a href="#tabela-controle">11. Tabela de Controle no Dropbox</a></li>
+                <li><a href="#descartes-rma">12. Descartes e RMA</a></li>
+                <li><a href="#vendas-equipamento">13. Vendas de Equipamento</a></li>
+                <li><a href="#pos-teste">14. Preparação e Organização Pós-Teste</a></li>
+                <li><a href="#limpeza-embalagem">15. Procedimentos de Limpeza e Embalagem</a></li>
+                <li><a href="#teste-fibra">16. Teste de Preparação de Fibra Óptica</a></li>
+                <li><a href="#seguranca">17. Procedimentos de Segurança</a></li>
             </ul>
         </nav>
 
         <article class="conteudo-guia">
             <section id="primeiros-passos">
-                <h2>1. Primeiros Passos no Laboratório</h2>
-                <p><strong>Objetivo Geral:</strong> Testar, reabilitar e catalogar equipamentos para reuso em futuras instalações.</p>
-                <h3>Fluxo de Trabalho:</h3>
+                <h2>1. Primeiros Passos no Laboratório (Classificação e Encaminhamento)</h2>
+                <p>Esta seção é um guia rápido para o que fazer ao receber equipamentos no laboratório.</p>
+                <h3>1.1. Objetivo</h3>
                 <ul>
-                    <li><strong>Categorização:</strong> Classifique o equipamento como REGULAR, RMA (REPARO) ou DESCARTE.</li>
-                    <li><strong>Teste Simples:</strong> Verifique fonte, energia e reinicie o aparelho.</li>
-                    <li><strong>Registro:</strong> Cataloge o equipamento, seu estado e quantidade no caderno de registros.</li>
-                    <li><strong>Destino:</strong> Redirecione o equipamento para o seu devido lugar.</li>
+                    <li>Receber, testar e classificar os equipamentos de forma padronizada.</li>
+                    <li>Garantir que cada item seja enviado para o lugar certo.</li>
+                </ul>
+                <h3>1.2. Fluxo de Trabalho Inicial</h3>
+                <ol>
+                    <li><strong>Identifique o Equipamento:</strong> Veja o tipo (ONT, Roteador, Antena, etc.) e o modelo.</li>
+                    <li><strong>Faça o Teste de Diagnóstico:</strong> Siga o procedimento específico para o tipo de equipamento. Consulte as seções de 2 a 8 para os testes detalhados.</li>
+                    <li><strong>Classifique o Equipamento:</strong>
+                        <ul>
+                            <li><strong>REGULAR:</strong> Funciona perfeitamente. Pode ser reutilizado.</li>
+                            <li><strong>RMA (Reparo):</strong> Apresenta defeito, mas pode ser consertado.</li>
+                            <li><strong>DESCARTE:</strong> Sem conserto, dano irreversível.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Registre:</strong> Anote a classificação na Tabela de Controle do Dropbox (Seção 11). Se for ONU, verifique o Serial Number na OLTSoft (Seção 9.4).</li>
+                    <li><strong>Armazene e Encaminhe:</strong> Guarde o equipamento no local certo, de acordo com sua classificação.
+                        <ul>
+                            <li><strong>RMA:</strong> Separe para o envio.</li>
+                            <li><strong>DESCARTE:</strong> Entregue ao estoque.</li>
+                            <li><strong>REGULAR:</strong> Prepare para reuso ou venda.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+
+            <section id="testes-onts">
+                <h2>2. Testes de ONTs</h2>
+                <p>As ONTs são equipamentos que convertem o sinal da fibra em internet Wi-Fi e por cabo.</p>
+                <h3>2.1. Preparação</h3>
+                <ol>
+                    <li><strong>Conecte a energia:</strong> Use a fonte correta para ligar a ONT.</li>
+                    <li><strong>Conecte a fibra:</strong> Encaixe o cabo de fibra na porta PON/GPON.</li>
+                    <li><strong>Conecte o computador:</strong> Use um cabo de rede da porta LAN da ONT para o seu computador.</li>
+                </ol>
+                <h3>2.2. Verifique as Luzes (LEDs)</h3>
+                <ul>
+                    <li><strong>Power:</strong> Deve ficar aceso, indicando que a ONT está ligada.</li>
+                    <li><strong>PON/LOS:</strong>
+                        <ul>
+                            <li>Piscando: A ONT está tentando se conectar à rede.</li>
+                            <li>Acesa (verde/branca): A conexão foi feita com sucesso.</li>
+                            <li>Piscando ou Vermelha: Indica falha. Não há sinal de fibra ou a ONT não conseguiu se registrar na rede.</li>
+                        </ul>
+                    </li>
+                    <li><strong>LAN:</strong> Acende quando um cabo de rede válido está conectado.</li>
+                    <li><strong>Wi-Fi:</strong> Deve acender, indicando que a rede sem fio está funcionando.</li>
+                </ul>
+                <h3>2.3. Acesse a Configuração</h3>
+                <ol>
+                    <li>Abra o navegador no seu computador.</li>
+                    <li>Digite o IP da ONT (normalmente <code>192.168.1.1</code> ou <code>192.168.0.1</code>).</li>
+                    <li>Faça login com a senha padrão (olhe na etiqueta).</li>
+                    <li>Confirme se as configurações de Wi-Fi e rede estão corretas e se não há erros.</li>
+                </ol>
+                <h3>2.4. Teste a Internet</h3>
+                <ul>
+                    <li><strong>Teste por cabo:</strong> Tente navegar na internet usando o computador conectado na porta LAN.</li>
+                    <li><strong>Teste por Wi-Fi:</strong> Conecte um celular ou outro dispositivo à rede Wi-Fi da ONT e navegue na internet.</li>
+                    <li><strong>Teste das Portas LAN:</strong> Teste cada porta LAN com um cabo de rede para garantir que todas estão funcionando.</li>
+                </ul>
+                <h3>2.5. Classifique a ONT</h3>
+                <ul>
+                    <li><strong>REGULAR:</strong> Passou em todos os testes (luzes OK, internet funciona por cabo e Wi-Fi, acesso à interface OK). Está pronta para reuso.</li>
+                    <li><strong>RMA (Reparo):</strong> Liga, mas tem problemas. Por exemplo: A luz PON/LOS não conecta, uma porta LAN não funciona, o Wi-Fi não liga ou a tela de configuração não abre.</li>
+                    <li><strong>DESCARTE:</strong> Não liga ou tem danos graves (ex: quebrada, queimada, molhada).</li>
                 </ul>
             </section>
             
-            <section id="tarefas-diarias-mensais">
-                <h2>2. Tarefas Diárias e Mensais</h2>
-                <h3>Diariamente:</h3>
+            <section id="testes-onus">
+                <h2>3. Testes de ONUs (Sem Função de Roteador)</h2>
+                <p>As ONUs são parecidas com as ONTs, mas não têm Wi-Fi ou roteador embutido.</p>
+                <h3>3.1. Preparação</h3>
+                <ol>
+                    <li>Conecte a energia: Use a fonte correta para ligar a ONU.</li>
+                    <li>Conecte a fibra: Encaixe o cabo de fibra na porta PON/GPON.</li>
+                    <li>Conecte o computador: Use um cabo de rede da porta LAN da ONU para o seu computador.</li>
+                </ol>
+                <h3>3.2. Verifique as Luzes (LEDs)</h3>
                 <ul>
-                    <li>Organize a bancada e área de trabalho.</li>
-                    <li>Teste, limpe e ensaque os equipamentos.</li>
-                    <li>Registre as atividades no caderno.</li>
-                    <li>Atualize a planilha do Dropbox.</li>
-                    <li>Separe panos usados para lavagem.</li>
+                    <li><strong>Power:</strong> Deve ficar aceso.</li>
+                    <li><strong>PON/LOS:</strong>
+                        <ul>
+                            <li>Piscando: Tentando conectar à rede.</li>
+                            <li>Acesa: Conectou com sucesso.</li>
+                            <li>Piscando ou Vermelha: Falha de sinal ou registro.</li>
+                        </ul>
+                    </li>
+                    <li><strong>LAN:</strong> Acende quando um cabo de rede válido está conectado.</li>
                 </ul>
-                <h3>Semanalmente:</h3>
+                <h3>3.3. Teste a Conectividade</h3>
+                <ol>
+                    <li>Verifique se o seu computador reconhece a conexão de rede.</li>
+                    <li>Faça um teste de ping para o IP de gerenciamento (se souber).</li>
+                    <li>Se a ONU estiver conectada a um roteador externo, tente navegar na internet.</li>
+                    <li>Teste cada porta LAN com um cabo de rede para garantir que todas estão funcionando.</li>
+                </ol>
+                <h3>3.4. Classifique a ONU</h3>
                 <ul>
-                    <li>Garanta que o laboratório está abastecido com insumos (adesivos, sacolas, tampas SFP).</li>
-                    <li>Verifique se não há acúmulo de equipamentos para teste, limpeza, RMA ou descarte.</li>
-                    <li>Confira se todas as ferramentas estão em boas condições.</li>
+                    <li><strong>REGULAR:</strong> Passou em todos os testes. Está pronta para reuso.</li>
+                    <li><strong>RMA (Reparo):</strong> Liga, mas tem problemas (luz PON/LOS não conecta, porta LAN não funciona, etc.).</li>
+                    <li><strong>DESCARTE:</strong> Não liga ou tem danos graves.</li>
                 </ul>
             </section>
-            
-            <section id="testes-onts-onus">
-                <h2>3. Testes de ONTs e ONUs de Recolhimento</h2>
-                <p><strong>Objetivo:</strong> Verificar rapidamente equipamentos recolhidos antes de decidir se vão para RMA ou retorno ao estoque.</p>
-                <h3>Testes Simples:</h3>
-                <ul>
-                    <li><strong>Ligar e LEDs:</strong> Conecte à tomada e verifique se todos os LEDs principais acendem corretamente.</li>
-                    <li><strong>Wi-Fi:</strong> Teste se a rede Wi-Fi está ativa e funcionando.</li>
-                    <li><strong>Reset Físico:</strong> Caso haja algum problema menor, realize um reset físico seguindo o procedimento do equipamento.</li>
-                </ul>
-                <h3>Classificação após teste simples:</h3>
-                <ul>
-                    <li><strong>REGULAR:</strong> Equipamento liga normalmente, LEDs corretos e Wi-Fi funcional.</li>
-                    <li><strong>RMA:</strong> Equipamento apresenta falha de LEDs ou Wi-Fi.</li>
-                    <li><strong>DESCARTE:</strong> Não liga ou apresenta defeito grave.</li>
-                </ul>
-            </section>
-            
-            <section id="testes-antenas">
-                <h2>4. Testes de Antenas</h2>
-                <h3>Ligar e Conectar:</h3>
-                <ul>
-                    <li>Ligue a fonte POE na tomada.</li>
-                    <li>Conecte a entrada POE na antena e a entrada LAN no notebook.</li>
-                    <li>Resete a antena: pressione o botão de reset por 30 segundos usando um clipe.</li>
-                </ul>
-                <h3>Definir IP Fixo no Notebook:</h3>
-                <ul>
-                    <li>IP: 192.168.1.25</li>
-                    <li>Máscara: 255.255.255.0</li>
-                    <li>Gateway: 192.168.1.20</li>
-                </ul>
-                <h3>Verificar Ping:</h3>
-                <ul>
-                    <li>Windows: <code>ping -t 192.168.1.20</code></li>
-                    <li>Ubuntu: <code>ping 192.168.1.20</code> (Ctrl+C para parar)</li>
-                </ul>
-                <h3>Acessar Interface:</h3>
-                <ul>
-                    <li>Navegador: <code>https://192.168.1.20</code></li>
-                    <li>Usuário: <code>ubnt</code> / Senha: <code>ubnt</code></li>
-                    <li>Região: <code>Licensed</code> / Idioma: <code>Brasil</code></li>
-                </ul>
-                <h3>Validar Configurações:</h3>
-                <ul>
-                    <li>LAN configurada para 100Mbps</li>
-                    <li>Teste Wi-Fi e polarização</li>
-                    <li>Verifique velocidade de upload e download</li>
-                </ul>
-                <h3>Classificação:</h3>
-                <p>REGULAR, RMA ou DESCARTE conforme desempenho e estado físico</p>
-            </section>
-            
+
             <section id="testes-roteadores">
-                <h2>5. Testes de Roteadores</h2>
+                <h2>4. Testes de Roteadores</h2>
+                <p>Os roteadores direcionam o tráfego de internet e oferecem Wi-Fi e portas de rede.</p>
+                <h3>4.1. Preparação</h3>
+                <ol>
+                    <li>Ligue o roteador na tomada com a fonte correta.</li>
+                    <li>Conecte a porta WAN (geralmente de cor diferente) a uma fonte de internet (como uma ONT ou modem).</li>
+                    <li>Conecte uma das portas LAN ao seu computador.</li>
+                </ol>
+                <h3>4.2. Verifique as Luzes (LEDs)</h3>
                 <ul>
-                    <li>Ligue o roteador e conecte WAN/LAN corretamente.</li>
-                    <li>Verifique LEDs (Power, WAN/Internet, LAN, Wi-Fi).</li>
-                    <li>Acesse a interface via navegador (IP padrão <code>192.168.1.1</code> ou <code>192.168.0.1</code>).</li>
-                    <li>Teste a conectividade: cabo LAN e Wi-Fi.</li>
-                    <li>Classifique: REGULAR, RMA ou DESCARTE.</li>
-                    <li>Se LED WAN vermelho: verifique cabos, modem, troque cabos ou faça reset de fábrica.</li>
+                    <li><strong>Power:</strong> Deve ficar aceso.</li>
+                    <li><strong>WAN/Internet:</strong>
+                        <ul>
+                            <li>Acesa (verde/azul): Conexão com a internet está ativa.</li>
+                            <li>Piscando: Atividade de dados.</li>
+                            <li>Vermelha ou apagada: Problema de conexão.</li>
+                        </ul>
+                    </li>
+                    <li><strong>LAN:</strong> Acende ao conectar um cabo de rede válido.</li>
+                    <li><strong>Wi-Fi:</strong> Deve ficar aceso.</li>
+                </ul>
+                <h3>4.3. Acesse a Configuração</h3>
+                <ol>
+                    <li>Abra o navegador e digite o IP do roteador (normalmente <code>192.168.1.1</code> ou <code>192.168.0.1</code>).</li>
+                    <li>Faça login com a senha padrão (olhe na etiqueta ou no manual).</li>
+                    <li>Verifique o status da internet e das configurações.</li>
+                </ol>
+                <h3>4.4. Teste a Conectividade</h3>
+                <ul>
+                    <li><strong>Teste por cabo:</strong> Tente navegar com o computador conectado na porta LAN.</li>
+                    <li><strong>Teste por Wi-Fi:</strong> Conecte um dispositivo na rede Wi-Fi do roteador e tente navegar.</li>
+                    <li><strong>Teste das Portas LAN:</strong> Teste cada porta LAN com um cabo de rede para garantir que todas estão funcionando.</li>
+                </ul>
+                <h3>4.5. Classifique o Roteador</h3>
+                <ul>
+                    <li><strong>REGULAR:</strong> Passou em todos os testes. Pronto para reuso.</li>
+                    <li><strong>RMA (Reparo):</strong> Liga, mas tem problemas (luz WAN não acende, portas LAN não funcionam, Wi-Fi com sinal fraco).</li>
+                    <li><strong>DESCARTE:</strong> Não liga ou tem danos graves.</li>
+                </ul>
+                <h3>4.6. Solução de Problemas: LED WAN Vermelho</h3>
+                <p>Se a luz WAN estiver vermelha, siga estes passos:</p>
+                <ol>
+                    <li><strong>Verifique os cabos:</strong> Certifique-se de que o cabo entre o roteador e o modem está bem conectado.</li>
+                    <li><strong>Verifique o modem:</strong> Veja se o modem ou ONT que fornece o sinal de internet está funcionando corretamente.</li>
+                    <li><strong>Troque o cabo:</strong> Use um cabo de rede diferente e funcional para ver se o problema é o cabo.</li>
+                    <li><strong>Teste com outra fonte:</strong> Se possível, conecte a porta WAN do roteador a outra fonte de internet.</li>
+                    <li><strong>Faça o reset de fábrica:</strong> Pressione o botão "Reset" por 10 segundos.</li>
+                </ol>
+                <h3>4.7. Teste de Configuração na Interface (se necessário)</h3>
+                <p>Se o LED WAN continuar vermelho, faça este teste:</p>
+                <ol>
+                    <li>Acesse a interface do roteador.</li>
+                    <li>Crie uma nova conexão WAN com o nome <code>TESTE_LABORATORIO</code>. Deixe o tipo como IP.</li>
+                    <li>Veja se a luz da WAN acende. Se sim, e a internet funcionar, o roteador está OK. Avise o Henrique ou o Wesley.</li>
+                    <li>Se a luz continuar vermelha, o roteador tem defeito na porta WAN e deve ser classificado como RMA ou DESCARTE.</li>
+                </ol>
+            </section>
+
+            <section id="testes-antenas">
+                <h2>5. Testes de Antenas</h2>
+                <p>Os testes em antenas verificam a capacidade de receber e enviar sinal.</p>
+                <h3>5.1. Preparação</h3>
+                <ol>
+                    <li>Conecte o POE na tomada.</li>
+                    <li>Conecte a antena à entrada POE e o computador à entrada LAN.</li>
+                    <li>Resete a antena: Pressione o botão de reset por 30 segundos.</li>
+                </ol>
+                <h3>5.2. Verificação de Acesso</h3>
+                <ol>
+                    <li>Configure o IP do computador:
+                        <ul>
+                            <li>IP: <code>192.168.1.25</code></li>
+                            <li>Máscara: <code>255.255.255.0</code></li>
+                            <li>Gateway: <code>192.168.1.20</code></li>
+                        </ul>
+                    </li>
+                    <li>Verifique o ping:
+                        <ul>
+                            <li>No Windows: Abra o CMD e digite <code>ping -t 192.168.1.20</code></li>
+                            <li>No Ubuntu: Abra o Terminal e digite <code>ping 192.168.1.20</code></li>
+                        </ul>
+                    </li>
+                    <li>Acesse a interface: Abra o navegador e digite <code>https://192.168.1.20</code>.</li>
+                    <li>Faça login: Use <code>ubnt</code> como usuário e senha.</li>
+                    <li>Verifique as configurações: Confirme se a LAN está em 100Mbps e se a busca de sinal Wi-Fi funciona.</li>
+                </ol>
+                <h3>5.3. Teste de Desempenho (se aplicável)</h3>
+                <ul>
+                    <li>Verifique a polarização: Para antenas de dupla polarização, veja se a potência do sinal está boa em ambos os canais.</li>
+                    <li>Monitore o sinal: Verifique a qualidade do sinal (SNR, CCQ) na interface da antena.</li>
+                    <li>Teste a velocidade: Se possível, teste a velocidade de upload e download da antena.</li>
+                </ul>
+                <h3>5.4. Classifique a Antena</h3>
+                <ul>
+                    <li><strong>REGULAR:</strong> Todos os testes passaram. A antena está apta para reuso.</li>
+                    <li><strong>RMA (Reparo):</strong> Sinal baixo, vazão ruim, conectores soltos ou danos leves.</li>
+                    <li><strong>DESCARTE:</strong> Danos físicos graves (rachada, quebrada, conectores destruídos).</li>
                 </ul>
             </section>
-            
+
             <section id="testes-switches">
                 <h2>6. Testes de Switches</h2>
+                <p>Os switches conectam vários dispositivos em uma rede. O teste é focado nas portas.</p>
+                <h3>6.1. Preparação</h3>
+                <ol>
+                    <li>Ligue o switch na tomada.</li>
+                    <li>Verifique se a luz de Power acende.</li>
+                </ol>
+                <h3>6.2. Teste de Portas</h3>
+                <ol>
+                    <li>Conecte um cabo de rede em uma das portas LAN do switch e a outra ponta no seu computador.</li>
+                    <li>Veja se o LED correspondente à porta acende.</li>
+                    <li>Repita o teste em todas as portas para garantir que todas funcionam.</li>
+                </ol>
+                <h3>6.3. Classifique o Switch</h3>
                 <ul>
-                    <li>Ligue o switch e verifique LED de energia.</li>
-                    <li>Conecte cabos em cada porta LAN e teste o LED correspondente.</li>
-                    <li>Classifique: REGULAR, RMA ou DESCARTE.</li>
+                    <li><strong>REGULAR:</strong> Todas as portas e luzes funcionam. Pronto para reuso.</li>
+                    <li><strong>RMA (Reparo):</strong> Liga, mas uma ou mais portas não funcionam ou falham de forma intermitente.</li>
+                    <li><strong>DESCARTE:</strong> Não liga ou tem danos graves.</li>
                 </ul>
             </section>
 
             <section id="testes-telefone-ip">
                 <h2>7. Testes de Telefone IP Intelbras TIP 125i</h2>
+                <p>Este teste garante que o telefone IP está funcionando e pronto para ser usado.</p>
+                <h3>7.1. Preparação</h3>
+                <ol>
+                    <li>Conecte o telefone ao computador com um cabo de rede.</li>
+                    <li>Ligue-o na energia (via PoE ou fonte externa).</li>
+                    <li>Verifique se o display e a luz de Power acendem.</li>
+                </ol>
+                <h3>7.2. Acesso à Configuração</h3>
+                <ol>
+                    <li>Abra o navegador no computador.</li>
+                    <li>Digite o IP do telefone (geralmente está no display).</li>
+                    <li>Faça login com a senha padrão.</li>
+                </ol>
+                <h3>7.3. Testes</h3>
                 <ul>
-                    <li>Conecte ao computador via LAN/PoE.</li>
-                    <li>Ligue e verifique display e LED de Power.</li>
-                    <li>Acesse interface pelo IP mostrado no display, login padrão.</li>
-                    <li>Teste registro SIP, chamadas e funções (volume, viva-voz).</li>
-                    <li>Classifique: REGULAR, RMA ou DESCARTE.</li>
+                    <li>Verifique o registro SIP: Na configuração, veja se o status da conta SIP está como "Registrado".</li>
+                    <li>Faça uma chamada: Tente ligar para um ramal de teste para ver se o áudio funciona bem.</li>
+                    <li>Verifique as funções: Teste as teclas de volume, viva-voz, etc.</li>
+                </ul>
+                <h3>7.4. Classifique o Telefone</h3>
+                <ul>
+                    <li><strong>REGULAR:</strong> Passou em todos os testes. Pronto para reuso.</li>
+                    <li><strong>RMA (Reparo):</strong> Liga, mas não registra SIP, o display trava, as teclas não funcionam, ou o áudio falha.</li>
+                    <li><strong>DESCARTE:</strong> Não liga ou tem danos graves.</li>
+                </ul>
+                <h3>7.5. Reset para Desconfigurar</h3>
+                <p>Ao final dos testes, é fundamental resetar o telefone para que ele não vá para campo com nenhuma configuração anterior.</p>
+                <ul>
+                    <li>Use a opção de "Factory Reset" no menu do telefone ou pressione e segure o botão de reset físico (se houver).</li>
                 </ul>
             </section>
-            
+
             <section id="testes-access-points">
                 <h2>8. Testes de Access Points UniFi (UAP)</h2>
+                <p>Este teste verifica se o Access Point funciona e pode ser configurado.</p>
+                <h3>8.1. Preparação</h3>
+                <ol>
+                    <li>Conecte o AP a um switch PoE (ou fonte PoE).</li>
+                    <li>Resete o AP: Pressione e segure o botão de reset por 5 a 10 segundos. O LED deve piscar e voltar a pulsar.</li>
+                    <li>O LED deve ficar branco (ou laranja) pulsando, indicando que está pronto para ser configurado.</li>
+                </ol>
+                <h3>8.2. Adoção no Controlador UniFi</h3>
+                <ol>
+                    <li>No seu computador, abra o software "UniFi Network Application".</li>
+                    <li>Na seção "Devices", o AP deve aparecer com o status "Aguardando Adoção".</li>
+                    <li>Clique em "Adotar" e aguarde. O LED do AP deve mudar para verde ou azul, indicando que está funcionando.</li>
+                </ol>
+                <h3>8.3. Testes Finais</h3>
                 <ul>
-                    <li>Conecte AP ao switch/fonte PoE.</li>
-                    <li>Resete AP (5-10s).</li>
-                    <li>Adote no controlador UniFi e aguarde mudança de LED para verde/azul.</li>
-                    <li>Teste Wi-Fi e verifique firmware.</li>
-                    <li>Classifique: REGULAR, RMA ou DESCARTE.</li>
+                    <li>Teste o Wi-Fi: Conecte um celular à rede Wi-Fi do AP e navegue na internet.</li>
+                    <li>Verifique o Firmware: No controlador, veja a versão do firmware e atualize se precisar.</li>
+                </ul>
+                <h3>8.4. Classifique o AP</h3>
+                <ul>
+                    <li><strong>REGULAR:</strong> Passou em todos os testes. Pronto para reuso.</li>
+                    <li><strong>RMA (Reparo):</strong> Não é encontrado pelo controlador, não consegue ser adotado, ou o Wi-Fi não funciona.</li>
+                    <li><strong>DESCARTE:</strong> Não liga ou tem danos graves.</li>
                 </ul>
             </section>
             
-            <section id="testes-avancados">
-                <h2>9. Testes Avançados de Equipamentos de OS (ONTs e Roteadores)</h2>
+            <section id="verificacao-equipamentos-recolhidos">
+                <h2>9. Verificação de Equipamentos Recolhidos</h2>
+                <p>Este procedimento serve para identificar o cliente que usava o equipamento.</p>
+                <h3>9.1. Método PPPOE (se aplicável)</h3>
+                <ol>
+                    <li>Conecte o equipamento ao computador.</li>
+                    <li>Acesse a tela de configuração e procure pela seção WAN > PPPOE.</li>
+                    <li>Anote o código PPPOE e envie para o grupo do Laboratório para saber o cliente.</li>
+                </ol>
+                <h3>9.2. Método OLTSoft (para ONUs)</h3>
+                <ol>
+                    <li>Acesse <code>https://rbt.oltsoft.com.br/</code>.</li>
+                    <li>Vá para Rede > ONUs Ativas.</li>
+                    <li>Procure pelo Número de Série (SN) do equipamento.</li>
+                    <li>Se o SN estiver ATIVO, isso significa que o equipamento ainda está registrado para um cliente. É preciso desativá-lo para evitar problemas.</li>
+                    <li>Se o SN estiver INATIVO, o equipamento está livre.</li>
+                </ol>
+            </section>
+
+            <section id="tarefas-diarias-mensais">
+                <h2>10. Tarefas Diárias e Mensais</h2>
+                <h3>10.1. Tarefas Diárias</h3>
+                <ul>
+                    <li>Organize a bancada de trabalho no início e no fim do dia.</li>
+                    <li>Teste, limpe e guarde os equipamentos classificados.</li>
+                    <li>Atualize a planilha do Dropbox.</li>
+                </ul>
+                <h3>10.2. Tarefas Mensais</h3>
+                <ul>
+                    <li>Revise e atualize a planilha de controle no Dropbox.</li>
+                    <li>Faça a contagem física de todo o estoque do laboratório.</li>
+                    <li>Compare o estoque físico com os dados da planilha para garantir que tudo bate.</li>
+                </ul>
+            </section>
+
+            <section id="tabela-controle">
+                <h2>11. Tabela de Controle no Dropbox</h2>
+                <p>A planilha no Dropbox serve para controlar a entrada e saída de equipamentos.</p>
+                <h3>11.1. Preenchimento</h3>
+                <ul>
+                    <li>Para cada equipamento, anote:
+                        <ul>
+                            <li>Tipo e Modelo: Ex: ONT ZTE F670L.</li>
+                            <li>Status: Regular, RMA ou Descarte.</li>
+                            <li>Data: A data em que o equipamento chegou.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="descartes-rma">
+                <h2>12. Descartes e RMA</h2>
+                <p>Este processo garante que os equipamentos com defeito sejam separados corretamente.</p>
+                <h3>12.1. Processo de Envio para RMA</h3>
+                <ol>
+                    <li><strong>Identifique o defeito:</strong> Anote o problema (ex: "Wi-Fi não funciona").</li>
+                    <li><strong>Etiquete:</strong> Coloque uma etiqueta no equipamento com o defeito anotado.</li>
+                    <li><strong>Registre:</strong> Anote na planilha de controle que o equipamento é RMA.</li>
+                    <li><strong>Embalagem:</strong> Coloque os itens de RMA em caixas. Conte os itens e cole uma lista do lado de fora.</li>
+                    <li><strong>Entregue:</strong> Leve a caixa para o estoque.</li>
+                </ol>
+                <h3>12.2. Processo de Descarte</h3>
+                <ol>
+                    <li><strong>Identifique:</strong> Separe os equipamentos sem conserto (não ligam, quebrados, etc.).</li>
+                    <li><strong>Armazene:</strong> Deixe-os em um local separado no laboratório.</li>
+                    <li><strong>Registre:</strong> Anote na planilha de controle que o equipamento é DESCARTE.</li>
+                    <li><strong>Embalagem:</strong> Coloque os itens de descarte em caixas. Conte os itens e cole uma lista do lado de fora.</li>
+                    <li><strong>Entregue:</strong> Leve a caixa para o estoque para a destinação final.</li>
+                </ol>
+            </section>
+
+            <section id="vendas-equipamento">
+                <h2>13. Vendas de Equipamento</h2>
+                <p>Equipamentos em bom estado podem ser vendidos.</p>
+                <ol>
+                    <li><strong>Apenas Regulares:</strong> Só venda equipamentos classificados como REGULAR.</li>
+                    <li><strong>Preparação:</strong> Certifique-se de que o equipamento foi limpo e o firmware está atualizado.</li>
+                    <li><strong>Registro:</strong> Antes de enviar, anote o Número de Série (SN) de cada item em uma planilha.</li>
+                    <li><strong>Entrega:</strong> Embale os produtos com proteção e leve-os ao estoque junto com a planilha impressa.</li>
+                </ol>
+            </section>
+
+            <section id="pos-teste">
+                <h2>14. Preparação e Organização Pós-Teste</h2>
+                <p>Após os testes, prepare os equipamentos para estoque e reuso.</p>
+                <h3>14.1. Organização no Estoque</h3>
+                <ul>
+                    <li>Quando o estoque receber os equipamentos, eles devem ser separados por versão e modelo para facilitar o controle.</li>
+                </ul>
+                <h3>14.2. Reset Físico</h3>
+                <ol>
+                    <li><strong>Faça o reset:</strong> Resete cada equipamento para as configurações de fábrica.</li>
+                    <li><strong>Avalie novamente:</strong> Após o reset, observe se ele se comporta como um aparelho "novo". Se tiver problemas, reclassifique como RMA ou DESCARTE.</li>
+                </ol>
+            </section>
+
+            <section id="limpeza-embalagem">
+                <h2>15. Procedimentos de Limpeza e Embalagem de Equipamentos</h2>
+                <p>A limpeza garante a boa aparência e prolonga a vida útil dos equipamentos.</p>
+                <h3>15.1. Remoção de Adesivos</h3>
+                <ul>
+                    <li><strong>Adesivos de papel:</strong> Use um pouco de WD-40, deixe agir por 5 a 10 minutos e remova com um pano.</li>
+                    <li><strong>Adesivos de plástico:</strong> Puxe com cuidado. Se sobrar cola, use o WD-40.</li>
+                </ul>
+                <h3>15.2. Limpeza Geral</h3>
+                <ul>
+                    <li>Use um pano com álcool para limpar a sujeira.</li>
+                    <li>Para sujeira mais difícil, use pasta de limpeza com uma esponja.</li>
+                </ul>
+                <h3>15.3. Cuidados com a Porta de Fibra</h3>
+                <ol>
+                    <li>Retire o adesivo protetor com cuidado.</li>
+                    <li>Limpe a parte interna da porta com uma caneta ou bastão de limpeza de fibra.</li>
+                    <li>Coloque uma tampa protetora na porta após a limpeza.</li>
+                </ol>
+                <h3>15.4. Embalagem Final</h3>
+                <ol>
+                    <li>Coloque cada equipamento em um saquinho individual.</li>
+                    <li>Junte a fonte de energia correta e testada com o aparelho.</li>
+                    <li>Guarde tudo em uma caixa grande para entregar ao estoque.</li>
+                </ol>
+            </section>
+
+            <section id="teste-fibra">
+                <h2>16. Teste de Preparação de Fibra Óptica</h2>
+                <p>Este teste garante que o cabo de fibra está bem preparado.</p>
+                <h3>16.1. Materiais</h3>
+                <ul>
+                    <li>Kit fibra (gabarito, alicates, clivador)</li>
+                    <li>Cabo Drop</li>
+                    <li>Power Meter</li>
+                    <li>Álcool Isopropílico</li>
+                </ul>
+                <h3>16.2. Procedimento</h3>
+                <ol>
+                    <li>Pegue um pedaço de Cabo Drop.</li>
+                    <li>Use o alicate para remover o elemento de sustentação e a proteção do cabo.</li>
+                    <li>Siga o vídeo de instrução para montar o conector: <a href="https://youtu.be/QXyzL8X0x7Y?si=F5KAajiWzO0f9TFb" target="_blank">https://youtu.be/QXyzL8X0x7Y?si=F5KAajiWzO0f9TFb</a></li>
+                    <li>Se o conector montado não funcionar ou o Power Meter não mostrar bons resultados, a fibra deve ser descartada.</li>
+                </ol>
+            </section>
+            
+            <section id="verificacao-avancada">
+                <h2>Verificação Avançada (ONTs e Roteadores)</h2>
                 <h3>ONTs ZTE F670L / F6600P:</h3>
                 <ul>
                     <li>Conecte energia, fibra e cabo LAN.</li>
                     <li>Resete fisicamente.</li>
                     <li>Verifique LEDs (LOS, LAN) e sinal Wi-Fi.</li>
-                    <li>Acesse interface para medir potência de entrada do módulo óptico (-18dBm a -28dBm).</li>
+                    <li>Acesse interface para medir potência de entrada do módulo óptico (<code>-19,22dBm</code>).</li>
                     <li>Use OLTSoft: autorize ONT, configure script Router+WiFi, SSID Testes_Laboratorio e senha <code>12345678</code>.</li>
                     <li>Após teste, desaprove a ONT para remover conexão.</li>
                 </ul>
@@ -180,62 +495,35 @@
                     <li>Teste novamente e classifique: REGULAR, RMA ou DESCARTE</li>
                 </ul>
             </section>
-            
-            <section id="tabela-controle">
-                <h2>10. Tabela de Controle no Dropbox</h2>
+
+            <section id="seguranca">
+                <h2>17. Procedimentos de Segurança no Laboratório</h2>
+                <p>A segurança é responsabilidade de todos. Siga estas regras:</p>
+                <h3>17.1. Segurança Geral</h3>
                 <ul>
-                    <li>Registre todos os equipamentos testados, limpos e encaminhados.</li>
-                    <li>Inclua tipo, modelo, status (REGULAR, RMA, DESCARTE) e data.</li>
+                    <li>Mantenha sua área de trabalho limpa e organizada.</li>
+                    <li>Corredores e saídas de emergência devem estar sempre livres.</li>
                 </ul>
-            </section>
-            
-            <section id="vendas-equipamento">
-                <h2>11. Vendas de Equipamento</h2>
+                <h3>17.2. Segurança Elétrica</h3>
                 <ul>
-                    <li>Verifique detalhes da venda com equipe de estoque.</li>
-                    <li>Separe produtos REGULAR, registre SN ou MAC na planilha.</li>
-                    <li>Embale produtos com proteção, insira planilha impressa na caixa e entregue ao estoque.</li>
+                    <li>Verifique cabos e fontes antes de ligar qualquer equipamento.</li>
+                    <li>Não sobrecarregue tomadas.</li>
+                    <li>Desligue e desconecte os equipamentos antes de fazer qualquer manutenção.</li>
                 </ul>
-            </section>
-            
-            <section id="procedimentos-seguranca">
-                <h2>12. Procedimentos de Segurança</h2>
+                <h3>17.3. Segurança com Fibra Óptica</h3>
                 <ul>
-                    <li>Mantenha bancada organizada.</li>
-                    <li>Não sobrecarregue tomadas; inspecione cabos.</li>
-                    <li>Nunca olhe diretamente para a ponta de fibra óptica ativa.</li>
-                    <li>Descarte cacos de fibra em recipiente apropriado.</li>
-                    <li>Use luvas e óculos de proteção ao manusear fibra ou produtos químicos.</li>
-                    <li>Comunique acidentes imediatamente.</li>
+                    <li><strong>Descarte os cacos:</strong> Jogue os pedaços de fibra em um recipiente específico, nunca no lixo comum.</li>
+                    <li><strong>Não olhe diretamente:</strong> Nunca olhe para a ponta de um cabo de fibra ou porta óptica que possa estar ligada. O laser pode danificar sua visão.</li>
                 </ul>
-            </section>
-            
-            <section id="senhas-padrao">
-                <h2>13. Senhas Padrão</h2>
-                <h3>1. Credenciais internas gerais:</h3>
+                <h3>17.4. Segurança com Ferramentas</h3>
                 <ul>
-                    <li>Usuário: <code>multipro</code> | Senha: <code>multipro</code></li>
-                    <li>Usuário: <code>admin</code>| Senha: <code>suporte@RBT*100</code></li>
-                    <li>Usuário: <code>admin</code> | Senha: <code>admin</code></li>
-                    <li>Usuário: <code>user</code> | Senha: <code>user</code></li>
-                    <li>Usuário: <code>user</code> | Senha: <code>suporte@RBT*100</code></li>
+                    <li>Use as ferramentas de forma correta e apenas para a função a que se destinam.</li>
+                    <li>Não use ferramentas danificadas.</li>
                 </ul>
-                <h3>2. Credenciais específicas para roteadores Intelbras IWR1000N e IWR3000N:</h3>
+                <h3>17.5. Outras Regras</h3>
                 <ul>
-                    <li>Usuário: <code>admin</code> | Senha: <code>suporte@RBT*100</code></li>
-                    <li>Usuário: <code>admin</code> | Senha: <code>redebrasil</code></li>
-                    <li>Usuário: <code>admin</code> | Senha: <code>admin</code></li>
-                    <li>Usuário: <code>redebrasil</code> | Senha: <code>redebrasil</code></li>
-                </ul>
-                <h3>3. Credenciais específicas para Antenas</h3>
-                <ul>
-                    <li>Usuário: <code>ubnt</code> / Senha: <code>ubnt</code></li>
-                </ul>
-                <h3>Observações:</h3>
-                <ul>
-                    <li>Utilizar apenas em ambiente de teste ou quando autorizado pela coordenação.</li>
-                    <li>Sempre registrar alterações no sistema interno.</li>
-                    <li>Após uso, retornar o equipamento às credenciais padrão.</li>
+                    <li>Use luvas e óculos de segurança ao trabalhar com fibra óptica ou produtos químicos.</li>
+                    <li>Comunique qualquer acidente ou problema de segurança ao seu superior.</li>
                 </ul>
             </section>
         </article>
