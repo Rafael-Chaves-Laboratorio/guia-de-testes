@@ -31,6 +31,7 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
     overflow: hidden;
+    position: relative; /* Adiciona esta linha para corrigir o posicionamento */
 }
 
 /* Estilos para o sumário (barra lateral) */
@@ -43,7 +44,7 @@ body {
     flex-shrink: 0;
     transition: transform 0.3s ease-in-out;
     
-    /* --- CÓDIGO CORRIGIDO PARA FIXAR O SUMÁRIO NO DESKTOP --- */
+    /* --- CÓDIGO CORRIGIDO PARA FIXAR O SUMÁRIO --- */
     height: 100vh;
     position: sticky;
     top: 0;
