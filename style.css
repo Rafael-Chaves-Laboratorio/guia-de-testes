@@ -7,8 +7,6 @@ body {
     background-color: #f4f4f4;
     color: #333;
     
-    /* --- CÓDIGO PARA SCROLL SUAVE --- */
-    scroll-behavior: smooth;
 }
 
 /* Estilos para o cabeçalho principal */
