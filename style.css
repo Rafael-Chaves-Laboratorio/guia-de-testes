@@ -22,15 +22,19 @@ body {
     font-size: 2rem;
 }
 
-/* Estilos para o conteúdo principal */
+/* Estilos para o container principal */
 .main-content {
-    display: flex;
     max-width: 1200px;
     margin: 2rem auto;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
-    /* overflow: hidden; */ /* REMOVIDO para permitir rolagem do sumário */
+    overflow: hidden;
+}
+
+/* Novo container para o sumário e o conteúdo do guia */
+.content-wrapper {
+    display: flex;
 }
 
 /* Estilos para o sumário (barra lateral) */
@@ -41,8 +45,13 @@ body {
     padding: 2rem;
     box-sizing: border-box;
     flex-shrink: 0;
-    overflow-y: auto; /* rola junto com o conteúdo no desktop */
+    overflow-y: auto;
     transition: transform 0.3s ease-in-out;
+    
+    /* --- CÓDIGO FINAL E CORRIGIDO PARA FIXAR O SUMÁRIO --- */
+    height: 100vh;
+    position: sticky;
+    top: 0;
 }
 
 .sumario-title {
@@ -120,7 +129,6 @@ body {
 /* Media Queries para responsividade */
 @media (max-width: 768px) {
     .main-content {
-        flex-direction: column;
         margin: 0;
         border-radius: 0;
     }
@@ -133,13 +141,12 @@ body {
         left: 0;
         z-index: 1000;
         transform: translateX(-100%);
-        overflow-y: auto; /* rolagem interna no mobile */
     }
 
     .sumario-container.open {
         transform: translateX(0);
     }
-
+    
     .menu-toggle {
         display: block;
     }
