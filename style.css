@@ -43,6 +43,11 @@ body {
     flex-shrink: 0; /* Impede que o sumário encolha */
     overflow-y: auto;
     transition: transform 0.3s ease-in-out;
+    
+    /* === CÓDIGO CORRIGIDO PARA O SUMÁRIO FIXO === */
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
 }
 
 .sumario-title {
@@ -133,6 +138,9 @@ body {
         left: 0;
         z-index: 1000;
         transform: translateX(-100%);
+        /* === REMOVE AS PROPRIEDADES DO DESKTOP === */
+        height: 100vh;
+        position: fixed;
     }
 
     .sumario-container.open {
