@@ -1,10 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
-    const body = document.body;
-    
-    if (menuToggle) {
+    const sumarioContainer = document.querySelector('.sumario-container');
+    const sumarioLinks = document.querySelectorAll('.sumario-lista a');
+
+    if (menuToggle && sumarioContainer) {
         menuToggle.addEventListener('click', () => {
-            body.classList.toggle('menu-aberto');
+            sumarioContainer.classList.toggle('open');
+        });
+    }
+
+    if (sumarioLinks) {
+        sumarioLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (sumarioContainer) {
+                    sumarioContainer.classList.remove('open');
+                }
+            });
         });
     }
 });
