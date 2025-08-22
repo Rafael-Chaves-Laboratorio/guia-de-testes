@@ -1,104 +1,87 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Lógica do menu, sumário e rolagem suave
+    // Código de Sumário e Login já existente
     const menuToggle = document.querySelector('.menu-toggle');
-    const sumarioContainer = document.querySelector('.sumario-container');
+    const sumarioContainer = document.getElementById('sumario-container');
     const sumarioCloseBtn = document.querySelector('.sumario-close-btn');
-
-    function toggleSumario() {
-        sumarioContainer.classList.toggle('open');
-    }
-
-    if (menuToggle) {
-        menuToggle.addEventListener('click', toggleSumario);
-    }
-    
-    if (sumarioCloseBtn) {
-        sumarioCloseBtn.addEventListener('click', toggleSumario);
-    }
-
-    document.querySelectorAll('.sumario-lista a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault(); 
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-            if (window.innerWidth <= 768) {
-                toggleSumario();
-            }
-        });
-    });
-
-    // Lógica do FAQ (acordeão)
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const pergunta = item.querySelector('.faq-pergunta');
-        pergunta.addEventListener('click', function() {
-            if (item.classList.contains('active')) {
-                item.classList.remove('active');
-            } else {
-                faqItems.forEach(otherItem => {
-                    otherItem.classList.remove('active');
-                });
-                item.classList.add('active');
-            }
-        });
-    });
-
-    // ====================================================================
-    // === LÓGICA DE LOGIN (DESATIVADA) ===================================
-    // Para reativar, remova os blocos '/*' e '*/' abaixo.
-    // ====================================================================
-
-    /*
-    const loginForm = document.getElementById('login-form');
+    const mainContent = document.getElementById('main-content-protected');
     const loginContainer = document.getElementById('login-container');
-    const sumarioContent = document.getElementById('sumario-container');
-    const conteudoGuia = document.getElementById('conteudo-guia');
+    const loginForm = document.getElementById('login-form');
     const errorMessage = document.getElementById('error-message');
+    const faqItems = document.querySelectorAll('.faq-item');
 
-    // Defina seu usuário e senha aqui
-    const USERNAME = 'suporte';
-    const PASSWORD = 'suporte@RBT*100';
+    menuToggle.addEventListener('click', function() {
+        sumarioContainer.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
 
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Impede o envio do formulário
-        
-        const usernameInput = document.getElementById('username').value;
-        const passwordInput = document.getElementById('password').value;
+    sumarioCloseBtn.addEventListener('click', function() {
+        sumarioContainer.classList.remove('active');
+        menuToggle.classList.remove('active');
+    });
 
-        if (usernameInput === USERNAME && passwordInput === PASSWORD) {
-            // Login bem-sucedido: esconde o formulário e mostra o conteúdo
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = loginForm.username.value;
+        const password = loginForm.password.value;
+
+        // A senha correta para acesso ao conteúdo.
+        const correctPassword = "rededeacesso123";
+
+        if (password === correctPassword) {
             loginContainer.classList.add('hidden');
-            sumarioContent.classList.remove('hidden');
-            conteudoGuia.classList.remove('hidden');
-
+            mainContent.classList.remove('main-content-protected');
+            mainContent.classList.add('main-content-unprotected');
         } else {
-            // Login falhou: mostra mensagem de erro
-            errorMessage.textContent = 'Usuário ou senha incorretos.';
+            errorMessage.textContent = 'Senha incorreta. Tente novamente.';
         }
     });
-    */
 
-    // ====================================================================
-    // === LÓGICA DE ATIVAÇÃO DE CONTEÚDO (APÓS A REMOÇÃO DO LOGIN) =======
-    // Essa parte garante que o conteúdo seja exibido por padrão.
-    // ====================================================================
+    faqItems.forEach(item => {
+        const pergunta = item.querySelector('.faq-pergunta');
+        const resposta = item.querySelector('.faq-resposta');
+        const icon = item.querySelector('.faq-icon');
 
-    // Remove a classe 'hidden' do sumário e do guia para que eles sejam exibidos por padrão
-    const sumarioContent = document.getElementById('sumario-container');
-    const conteudoGuia = document.getElementById('conteudo-guia');
-    const loginContainer = document.getElementById('login-container');
+        pergunta.addEventListener('click', () => {
+            const isExpanded = resposta.classList.contains('active');
+            
+            // Fecha todas as respostas
+            document.querySelectorAll('.faq-resposta.active').forEach(resp => {
+                resp.classList.remove('active');
+                resp.style.maxHeight = null;
+            });
+            document.querySelectorAll('.faq-icon').forEach(ic => {
+                ic.textContent = '+';
+            });
 
-    sumarioContent.classList.remove('hidden');
-    conteudoGuia.classList.remove('hidden');
+            // Se a pergunta não estava aberta, abre-a.
+            if (!isExpanded) {
+                resposta.classList.add('active');
+                resposta.style.maxHeight = resposta.scrollHeight + 'px';
+                icon.textContent = '-';
+            }
+        });
+    });
 
-    // Oculta o formulário de login por padrão (se a classe 'hidden' não estiver no HTML)
-    if (loginContainer) {
-        loginContainer.classList.add('hidden');
+    // --- NOVO CÓDIGO PARA O DOWNLOAD DO PDF ---
+    const downloadBtn = document.getElementById('download-pdf-btn');
+
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function() {
+            // Seleciona o elemento que contém todo o conteúdo do guia (o <article>)
+            const element = document.getElementById('conteudo-guia');
+            
+            // Opções para a conversão do PDF
+            const opt = {
+                margin: 10,
+                filename: 'Guia-Rede-e-Equipamentos.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Inicia a conversão e o download
+            html2pdf().set(opt).from(element).save();
+        });
     }
-
+    // --- FIM DO NOVO CÓDIGO ---
 });
