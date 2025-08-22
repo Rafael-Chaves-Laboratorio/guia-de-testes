@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Seletor de elementos
     const menuToggle = document.querySelector('.menu-toggle');
     const sumarioContainer = document.getElementById('sumario-container');
     const sumarioCloseBtn = document.querySelector('.sumario-close-btn');
@@ -9,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorMessage = document.getElementById('error-message');
     const faqItems = document.querySelectorAll('.faq-item');
     const downloadBtn = document.getElementById('download-pdf-btn');
+    const downloadContainer = document.querySelector('.download-container'); // Novo seletor
 
-    // Lógica do menu e login
     menuToggle.addEventListener('click', function() {
         sumarioContainer.classList.toggle('active');
         menuToggle.classList.toggle('active');
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (loginForm) {
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault();
-            const username = loginForm.username.value;
             const password = loginForm.password.value;
             const correctPassword = "rededeacesso123";
 
@@ -32,13 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 loginContainer.classList.add('hidden');
                 mainContent.classList.remove('main-content-protected');
                 mainContent.classList.add('main-content-unprotected');
+                downloadContainer.classList.remove('hidden'); // MOSTRA O BOTÃO APÓS O LOGIN
             } else {
                 errorMessage.textContent = 'Senha incorreta. Tente novamente.';
             }
         });
     }
 
-    // Lógica do FAQ
     if (faqItems) {
         faqItems.forEach(item => {
             const pergunta = item.querySelector('.faq-pergunta');
@@ -65,10 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Lógica do Download em PDF
     if (downloadBtn) {
         downloadBtn.addEventListener('click', function() {
-            // Seleciona o elemento que contém todo o conteúdo do guia (o <article>)
             const element = document.getElementById('conteudo-guia');
             
             if (!element) {
