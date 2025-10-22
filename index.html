@@ -88,9 +88,9 @@
                 </ul>
                 <h3>Classificação após teste simples:</h3>
                 <ul>
-                    <li><strong>REGULAR:</strong> Equipamento liga normalmente, LEDs corretos e Wi-Fi funcional.</li>
+                    <li><strong>REGULAR:</strong> Equipamento liga normalmente, LEDs corretos e Wi-Fi funcional, e **portas LAN funcionais**.</li>
                     <li><strong>RMA:</strong> Equipamento apresenta falha de LEDs ou Wi-Fi.</li>
-                    <li><strong>DESCARTE:</strong> Não liga ou apresenta defeito grave.</li>
+                    <li>**DESCARTE:** Não liga ou apresenta defeito grave, **incluindo porta(s) LAN queimada(s)**.</li>
                 </ul>
             </section>
 
@@ -103,7 +103,7 @@
                         <ul>
                             <li>**REGULAR:** Liga, PON com link.</li>
                             <li>**RMA:** Liga, mas PON sem link, ou LAN sem link.</li>
-                            <li>**DESCARTE:** Não liga.</li>
+                            <li>**DESCARTE:** Não liga, ou **qualquer porta LAN queimada**.</li>
                         </ul>
                     </li>
                 </ul>
@@ -166,7 +166,7 @@
                     <li>Verifique LEDs (Power, WAN/Internet, LAN, Wi-Fi).</li>
                     <li>Acesse a interface via navegador (IP padrão <code>192.168.1.1</code> ou <code>192.168.0.1</code>).</li>
                     <li>Teste a conectividade: cabo LAN e Wi-Fi.</li>
-                    <li><strong>Teste das Portas LAN:</strong> Teste cada porta LAN com um cabo de rede para garantir que todas estão funcionando.</li>
+                    <li><strong>Teste das Portas LAN:</strong> Teste cada porta LAN com um cabo de rede para garantir que todas estão funcionando. **Se qualquer porta LAN estiver queimada, classifique como DESCARTE.**</li>
                     <li>Classifique: REGULAR, RMA ou DESCARTE.</li>
                     <li>Se LED WAN vermelho: verifique cabos, modem, troque cabos ou faça reset de fábrica.</li>
                 </ul>
@@ -206,6 +206,9 @@
             
             <section id="testes-avancados">
                 <h2>10. Testes Avançados de Equipamentos de OS (ONTs e Roteadores)</h2>
+                
+                <p style="color: red; font-weight: bold;">⚠️ IMPORTANTE: Equipamentos com a porta LAN queimada devem ser classificados diretamente como DESCARTE. Não inicie testes avançados nesses casos.</p>
+                
                 <h3>ONTs ZTE F670L / F6600P:</h3>
                 <ul>
                     <li>Conecte energia, fibra e cabo LAN.</li>
@@ -255,7 +258,8 @@
                 </ol>
                 <h3>Processo de Descarte</h3>
                 <ol>
-                    <li><strong>Identifique:</strong> Separe os equipamentos sem conserto (não ligam, quebrados, etc.).</li>
+                    <li>**Regra de Descarte Direto:** **Qualquer equipamento com porta LAN queimada** deve ser imediatamente classificado como DESCARTE.</li>
+                    <li>**Identifique:** Separe os equipamentos sem conserto (não ligam, quebrados, etc.).</li>
                     <li><strong>Armazene:</strong> Deixe-os em um local separado no laboratório.</li>
                     <li><strong>Registre:</strong> Anote na planilha de controle que o equipamento é DESCARTE.</li>
                     <li><strong>Embalagem:</strong> Coloque os itens de descarte em caixas. Conte os itens e cole uma lista do lado de fora.</li>
@@ -303,7 +307,7 @@
                 <ol>
                     <li>Pegue um pedaço de Cabo Drop.</li>
                     <li>Use o alicate para remover o elemento de sustentação e a proteção do cabo.</li>
-                    <li>Siga o vídeo de instrução para montar o conector: <a href="https://youtu.be/QXyzL8X0x7Y?si=F5KAajiWzO0f9TFb" target="_blank">https://youtu.be/QXyzL8X0x7Y?si=F5KAajiWzO0f9TFb</a></li>
+                    <li>Siga o vídeo de instrução para montar o conector: <a href="https://youtu.be/QXyzL8X0x7Y?si=F5KAajiWO0f9TFb" target="_blank">https://youtu.be/QXyzL8X0x7Y?si=F5KAajiWzO0f9TFb</a></li>
                     <li>Se o conector montado não funcionar ou o Power Meter não mostrar bons resultados, a fibra deve ser descartada.</li>
                 </ol>
             </section>
@@ -367,7 +371,7 @@
                             <span class="faq-icon">+</span>
                         </div>
                         <div class="faq-resposta">
-                            <p><strong>RMA</strong> (Return Merchandise Authorization) é para equipamentos que podem ser enviados para reparo. <strong>Descarte</strong> é para equipamentos que não têm conserto ou não valem o custo de reparo.</p>
+                            <p><strong>RMA</strong> (Return Merchandise Authorization) é para equipamentos que podem ser enviados para reparo. <strong>Descarte</strong> é para equipamentos que não têm conserto ou não valem o custo de reparo, **incluindo aqueles com porta LAN queimada**.</p>
                         </div>
                     </div>
                     <div class="faq-item">
