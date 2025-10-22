@@ -1,73 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // VARIÁVEIS DE CONFIGURAÇÃO
-    const SENHA_CORRETA = "rededeacesso123";
-    const CHAVE_ARMAZENAMENTO_LOGIN = "acessoPermitido";
     
     // Seletor de elementos
     const menuToggle = document.querySelector('.menu-toggle');
     const sumarioContainer = document.getElementById('sumario-container');
     const sumarioCloseBtn = document.querySelector('.sumario-close-btn');
-    const mainContent = document.getElementById('main-content-protected'); 
-    const loginContainer = document.getElementById('login-container');
-    const loginForm = document.getElementById('login-form');
-    const errorMessage = document.getElementById('error-message');
-    const conteudoGuia = document.getElementById('conteudo-guia'); 
     const faqItems = document.querySelectorAll('.faq-item');
     const sumarioLinks = document.querySelectorAll('.sumario-lista a');
 
 
-    // --- FUNÇÕES DE CONTROLE DE ESTADO ---
-    
-    /** Verifica se o acesso está salvo na sessão. */
-    function verificarLogin() {
-        return sessionStorage.getItem(CHAVE_ARMAZENAMENTO_LOGIN) === 'true';
-    }
-
-    /** Exibe a tela de login e esconde o conteúdo. */
-    function mostrarTelaLogin() {
-        loginContainer.classList.remove('hidden');
-        if (conteudoGuia) conteudoGuia.classList.add('hidden');
-        if (menuToggle) menuToggle.classList.add('hidden');
-        if (sumarioContainer) sumarioContainer.classList.add('hidden');
-        if (mainContent) mainContent.classList.add('main-content-protected');
-    }
-
-    /** Exibe o conteúdo e esconde a tela de login. */
-    function mostrarConteudo() {
-        loginContainer.classList.add('hidden');
-        if (conteudoGuia) conteudoGuia.classList.remove('hidden');
-        if (menuToggle) menuToggle.classList.remove('hidden');
-        if (sumarioContainer) sumarioContainer.classList.remove('hidden'); 
-        if (mainContent) mainContent.classList.remove('main-content-protected');
-    }
-
-    // --- LÓGICA DE INICIALIZAÇÃO ---
-    if (!verificarLogin()) {
-        mostrarTelaLogin();
-    } else {
-        mostrarConteudo();
-    }
-    
-    // --- LÓGICA DE LOGIN ---
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const password = loginForm.password.value;
-
-            if (password === SENHA_CORRETA) {
-                sessionStorage.setItem(CHAVE_ARMAZENAMENTO_LOGIN, 'true'); 
-                errorMessage.textContent = '';
-                mostrarConteudo();
-                window.location.reload(); 
-            } else {
-                errorMessage.textContent = 'Senha incorreta. Tente novamente.';
-            }
-        });
-    }
-
-    // --- LÓGICA DO MENU SUMÁRIO ---
+    // --- LÓGICA DO MENU SUMÁRIO (mobile) ---
     function toggleSumario() {
-        // Se estiver no mobile, usa a classe 'open' do seu CSS
+        // Usa a classe 'open' do seu CSS para a animação de slide no mobile
         if (window.innerWidth <= 768) {
             sumarioContainer.classList.toggle('open');
         } 
@@ -85,12 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
     sumarioLinks.forEach(link => {
         link.addEventListener('click', () => {
              if (window.innerWidth <= 768) {
-                 toggleSumario();
+                 // Verifica se está aberto antes de tentar fechar
+                 if (sumarioContainer.classList.contains('open')) {
+                     toggleSumario();
+                 }
              }
         });
     });
 
-    // --- LÓGICA DO FAQ ---
+    // --- LÓGICA DO FAQ (Acordeão) ---
     if (faqItems) {
         faqItems.forEach(item => {
             const pergunta = item.querySelector('.faq-pergunta');
@@ -98,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             pergunta.addEventListener('click', () => {
                 const isExpanded = item.classList.contains('active');
                 
-                // Fecha todos os outros itens
+                // Fecha todos os outros itens abertos
                 document.querySelectorAll('.faq-item.active').forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
@@ -113,9 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const icon = item.querySelector('.faq-icon');
                 
                 if (!isExpanded) {
+                    // Abre: Define a altura máxima para o conteúdo fluir
                     resposta.style.maxHeight = resposta.scrollHeight + 'px';
                     icon.textContent = '-'; 
                 } else {
+                    // Fecha: Volta a altura máxima para null/0
                     resposta.style.maxHeight = null;
                     icon.textContent = '+';
                 }
