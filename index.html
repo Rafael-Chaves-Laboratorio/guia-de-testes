@@ -96,14 +96,34 @@
 
             <section id="testes-f601">
                 <h2>4. Testes de ONU F601 (Placa Vermelha)</h2>
-                <p>A ONU F601 de placa vermelha é específica e requer atenção especial no teste, pois pode falhar mesmo com o LED verde aceso. Siga o procedimento rigorosamente:</p>
-                <ol>
-                    <li>Conecte a fibra óptica e a energia.</li>
-                    <li>Aguarde o LED PON acender na cor verde.</li>
-                    <li>**Teste de Tráfego:** Conecte um cabo de rede do F601 a um computador e verifique se há conectividade de rede (ping ou navegação).</li>
-                    <li>Se o PON estiver verde, mas não houver link de rede (LED LAN apagado ou sem conexão), o equipamento deve ser enviado para "**RMA** (Reparo), com a descrição: "PON OK, mas sem link/tráfego LAN".</li>
-                </ol>
+                <ul>
+                    <li><strong>Teste Simples:</strong> A ONU F601 deve ligar e acender os LEDs correspondentes.</li>
+                    <li><strong>Teste de Link:</strong> O LED PON deve ligar e piscar indicando conexão. Se estiver sem link, classifique como **RMA** para que o setor de Redes verifique o problema.</li>
+                    <li>**Classificação:**
+                        <ul>
+                            <li>**REGULAR:** Liga, PON com link.</li>
+                            <li>**RMA:** Liga, mas PON sem link, ou LAN sem link.</li>
+                            <li>**DESCARTE:** Não liga.</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>Acesso para Configuração (IP Fixo)</h3>
+                
+                <p>Para acessar a F601, precisamos fixar um IP na placa do computador:</p>
+                
+                <ul>
+                    <li><strong>Endereço:</strong> 192.168.1.50</li>
+                    <li><strong>Máscara:</strong> 255.255.255.0</li>
+                    <li><strong>Gateway:</strong> 192.168.1.1</li>
+                </ul>
+                
+                <p>Fixando o IPV4 na placa dessa maneira, podemos acessar a F601 com <strong>192.168.1.1</strong>.</p>
+                
+                <p>Temos algumas senhas para poder acessá-la, onde podemos ver na parte do guia das senhas e usuários.</p>
+                
             </section>
+            
             <section id="testes-antenas">
                 <h2>5. Testes de Antenas</h2>
                 <h3>Ligar e Conectar:</h3>
